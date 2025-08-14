@@ -98,6 +98,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable} antialiased`}>
       <head>
+      <meta name="google-adsense-account" content="ca-pub-8652743922598553" />
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8652743922598553"
          crossOrigin="anonymous"></script>
         <link rel="icon" href="../public/favicon.ico" sizes="any" />
