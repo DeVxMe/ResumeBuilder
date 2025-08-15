@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next"
-import { createServerClient } from "@/lib/supabase/server"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://resumewithoutsignup.vercel.app"
@@ -32,26 +31,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  try {
-    // Get public resumes for dynamic pages
-    const supabase = createServerClient()
-    const { data: publicResumes } = await supabase
-      .from("resumes")
-      .select("slug, updated_at")
-      .eq("is_public", true)
-      .not("slug", "is", null)
-
-    const dynamicPages =
-      publicResumes?.map((resume) => ({
-        url: `${baseUrl}/resume/${resume.slug}`,
-        lastModified: new Date(resume.updated_at),
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      })) || []
-
-    return [...staticPages, ...dynamicPages]
-  } catch (error) {
-    console.error("Error generating sitemap:", error)
-    return staticPages
-  }
+  // Return only static pages to avoid build-time database calls
+  return staticPages
 }

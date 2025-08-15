@@ -100,9 +100,9 @@ export default function RootLayout({
       <head>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8652743922598553"
      crossOrigin="anonymous"></script>
-<ins class="adsbygoogle"
+<ins className="adsbygoogle"
 // @ts-ignore
-     style="display:block"
+     style={{ display: "block" }}
      data-ad-format="fluid"
      data-ad-layout-key="-et-29-1k-9x+xe"
      data-ad-client="ca-pub-8652743922598553"
