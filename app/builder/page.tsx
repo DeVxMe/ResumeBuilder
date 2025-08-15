@@ -1,4 +1,5 @@
 import { ResumeBuilder } from "@/components/resume-builder"
+import { ErrorBoundary } from "@/components/error-boundary"
 
 export const metadata = {
   title: "Resume Builder - Create Your Professional Resume",
@@ -6,5 +7,9 @@ export const metadata = {
 }
 
 export default function BuilderPage() {
-  return <ResumeBuilder />
+  return (
+    <ErrorBoundary>
+      <ResumeBuilder />
+    </ErrorBoundary>
+  )
 }

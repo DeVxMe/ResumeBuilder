@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Plus, Edit, Download, Share2 } from "lucide-react"
 import Link from "next/link"
+import { ErrorBoundary } from "@/components/error-boundary"
 
 export const metadata = {
   title: "My Resumes - Resume Creator",
@@ -10,7 +11,8 @@ export const metadata = {
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <ErrorBoundary>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -121,6 +123,7 @@ export default function DashboardPage() {
           </Card>
         </div>
       </main>
-    </div>
+      </div>
+    </ErrorBoundary>
   )
 }

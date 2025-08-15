@@ -2,6 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk, DM_Sans } from "next/font/google"
 import "./globals.css"
+import { ErrorBoundary } from "@/components/error-boundary"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -203,7 +206,19 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+          <Toaster />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

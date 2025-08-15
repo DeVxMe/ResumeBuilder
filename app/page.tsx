@@ -2,10 +2,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { FileText, Download, Share2, Zap, Edit, Palette, CheckCircle, Users, Star } from "lucide-react"
+import { ErrorBoundary } from "@/components/error-boundary"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <ErrorBoundary>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -197,6 +199,7 @@ export default function HomePage() {
           <p className="text-sm text-indigo-200 mt-4">No email required • No account needed • Instant access</p>
         </div>
       </section>
-    </div>
+      </div>
+    </ErrorBoundary>
   )
 }

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Eye, Download, Star, Users } from "lucide-react"
 import Link from "next/link"
+import { ErrorBoundary } from "@/components/error-boundary"
 
 export const metadata: Metadata = {
   title: "Resume Gallery - Browse Professional Resumes",
@@ -63,7 +64,8 @@ const mockResumes = [
 
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <ErrorBoundary>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -145,7 +147,8 @@ export default function GalleryPage() {
           </Button>
         </div>
       </main>
-    </div>
+      </div>
+    </ErrorBoundary>
   )
 }
 
