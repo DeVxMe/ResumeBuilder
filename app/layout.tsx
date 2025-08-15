@@ -98,6 +98,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable} antialiased`}>
       <head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8652743922598553"
+     crossOrigin="anonymous"></script>
+<ins class="adsbygoogle"
+// @ts-ignore
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-et-29-1k-9x+xe"
+     data-ad-client="ca-pub-8652743922598553"
+     data-ad-slot="6833194518"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
       <meta name="google-adsense-account" content="ca-pub-8652743922598553" />
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8652743922598553"
          crossOrigin="anonymous"></script>
