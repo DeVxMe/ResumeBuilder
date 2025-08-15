@@ -162,49 +162,11 @@ export default function RootLayout({
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "Do I need to sign up to use this resume builder?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "No, you can create and download professional resumes without any signup or registration. Just start building your resume immediately.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Is this resume builder completely free?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes, our resume builder is 100% free with no hidden costs, credits, or premium features. All templates and export options are free.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Are the resume templates ATS-friendly?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes, all our resume templates are designed to be ATS (Applicant Tracking System) friendly, ensuring your resume passes through automated screening systems.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Can I export my resume to PDF and Word formats?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes, you can export your resume to both PDF and DOCX (Word) formats for free, without any watermarks or limitations.",
-                  },
-                },
-              ],
-            }),
-          }}
-        />
+        {/*
+          IMPORTANT: I've removed the FAQPage schema from here.
+          It should be placed in your src/app/page.js file or the component
+          that renders your homepage to avoid the duplicate error.
+        */}
       </head>
       <body className="font-sans">
         <ThemeProvider
