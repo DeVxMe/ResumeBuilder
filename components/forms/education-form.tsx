@@ -42,23 +42,23 @@ export function EducationForm({ data, onUpdate }: EducationFormProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-heading font-semibold">Education</h3>
+          <h3 className="text-lg font-heading font-semibold text-gray-900">Education</h3>
           <p className="text-gray-600">Add your academic qualifications</p>
         </div>
-        <Button onClick={addEducation} className="flex items-center gap-2">
+        <Button onClick={addEducation} className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700">
           <Plus className="h-4 w-4" />
           Add Education
         </Button>
       </div>
 
       {education.length === 0 ? (
-        <Card className="border-dashed">
+        <Card className="border-dashed border-gray-300">
           <CardContent className="flex flex-col items-center justify-center py-12">
             <p className="text-gray-500 mb-4">No education added yet</p>
-            <Button onClick={addEducation} variant="outline">
+            <Button onClick={addEducation} variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
               Add Your Education
             </Button>
           </CardContent>
@@ -66,10 +66,10 @@ export function EducationForm({ data, onUpdate }: EducationFormProps) {
       ) : (
         <div className="space-y-4">
           {education.map((edu, index) => (
-            <Card key={edu.id}>
-              <CardHeader className="pb-4">
+            <Card key={edu.id} className="border border-gray-200">
+              <CardHeader className="pb-4 bg-gray-50">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-base">Education #{index + 1}</CardTitle>
+                  <CardTitle className="text-base text-gray-900">Education #{index + 1}</CardTitle>
                   <Button
                     variant="ghost"
                     size="sm"
@@ -80,87 +80,87 @@ export function EducationForm({ data, onUpdate }: EducationFormProps) {
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 p-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label>Institution *</Label>
+                    <Label className="text-gray-900 font-medium">Institution *</Label>
                     <Input
                       value={edu.institution}
                       onChange={(e) => updateEducation(index, "institution", e.target.value)}
                       placeholder="University of California"
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label>Degree *</Label>
+                    <Label className="text-gray-900 font-medium">Degree *</Label>
                     <Input
                       value={edu.degree}
                       onChange={(e) => updateEducation(index, "degree", e.target.value)}
                       placeholder="Bachelor of Science"
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label>Field of Study</Label>
+                    <Label className="text-gray-900 font-medium">Field of Study</Label>
                     <Input
                       value={edu.field_of_study}
                       onChange={(e) => updateEducation(index, "field_of_study", e.target.value)}
                       placeholder="Computer Science"
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label>Location</Label>
+                    <Label className="text-gray-900 font-medium">Location</Label>
                     <Input
                       value={edu.location}
                       onChange={(e) => updateEducation(index, "location", e.target.value)}
                       placeholder="Berkeley, CA"
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label>Start Date</Label>
+                    <Label className="text-gray-900 font-medium">Start Date</Label>
                     <Input
                       type="month"
                       value={edu.start_date}
                       onChange={(e) => updateEducation(index, "start_date", e.target.value)}
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label>End Date</Label>
+                    <Label className="text-gray-900 font-medium">End Date</Label>
                     <Input
                       type="month"
                       value={edu.end_date}
                       onChange={(e) => updateEducation(index, "end_date", e.target.value)}
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label>GPA (Optional)</Label>
+                    <Label className="text-gray-900 font-medium">GPA (Optional)</Label>
                     <Input
                       value={edu.gpa}
                       onChange={(e) => updateEducation(index, "gpa", e.target.value)}
                       placeholder="3.8"
-                      className="focus:ring-2 focus:ring-indigo-500 transition-all"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Additional Details</Label>
+                  <Label className="text-gray-900 font-medium">Additional Details</Label>
                   <Textarea
                     value={edu.description}
                     onChange={(e) => updateEducation(index, "description", e.target.value)}
                     placeholder="Relevant coursework, honors, activities..."
                     rows={3}
-                    className="focus:ring-2 focus:ring-indigo-500 transition-all resize-none"
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900 resize-none"
                   />
                 </div>
               </CardContent>

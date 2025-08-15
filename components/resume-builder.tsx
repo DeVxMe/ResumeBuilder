@@ -30,6 +30,16 @@ export function ResumeBuilder() {
     theme_color: "#6366f1",
     is_public: false,
     view_count: 0,
+    // Personal Information
+    full_name: "",
+    email: "",
+    phone: "",
+    location: "",
+    website: "",
+    linkedin: "",
+    github: "",
+    summary: "",
+    // Professional Data
     experience: [],
     education: [],
     skills: [],
@@ -82,10 +92,8 @@ export function ResumeBuilder() {
   }
 
   const updateResumeData = (data: Partial<Resume>) => {
-    console.log("Updating resume data:", data) // Debug log
     setResumeData((prev) => {
       const updated = { ...prev, ...data }
-      console.log("New resume data:", updated) // Debug log
       return updated
     })
   }
@@ -135,9 +143,9 @@ export function ResumeBuilder() {
           <h1 className="text-4xl font-heading font-bold bg-gradient-to-r from-gray-900 to-indigo-600 bg-clip-text text-transparent mb-3">
             Let's build your resume step by step
           </h1>
-          <p className="text-lg text-gray-600">Fill out your details, and we'll guide you through the process.</p>
+          <p className="text-lg text-gray-700">Fill out your details, and we'll guide you through the process.</p>
           {isSaved && (
-            <div className="flex items-center gap-2 text-green-600 text-sm mt-3 bg-green-50 px-3 py-2 rounded-lg w-fit">
+            <div className="flex items-center gap-2 text-green-600 text-sm mt-3 bg-green-50 px-3 py-2 rounded-lg w-fit border border-green-200">
               <CheckCircle className="h-4 w-4" />
               <span>Changes saved automatically</span>
             </div>
@@ -150,7 +158,7 @@ export function ResumeBuilder() {
             <span className="text-sm font-semibold text-gray-700">
               Step {currentStep + 1} of {STEPS.length}
             </span>
-            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+            <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
               {Math.round(progress)}% complete
             </span>
           </div>
@@ -170,7 +178,7 @@ export function ResumeBuilder() {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 scale-105"
                       : index < currentStep
                         ? "bg-green-100 text-green-800 hover:bg-green-200 border border-green-200"
-                        : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-gray-300"
+                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -185,23 +193,25 @@ export function ResumeBuilder() {
 
         <div className="max-w-4xl mx-auto">
           {/* Form Section */}
-          <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-            <CardHeader className="border-b bg-gradient-to-r from-white to-gray-50/50 rounded-t-lg">
+          <Card className="shadow-xl border border-gray-200 bg-white">
+            <CardHeader className="border-b border-gray-200 bg-gradient-to-r from-white to-gray-50/80 rounded-t-lg">
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle className="font-heading text-2xl text-gray-900">{STEPS[currentStep].title}</CardTitle>
-                  <p className="text-gray-600 mt-1">{STEPS[currentStep].description}</p>
+                  <p className="text-gray-700 mt-1">{STEPS[currentStep].description}</p>
                 </div>
                 <Button
                   onClick={handlePreviewClick}
-                  className="bg-indigo-600 hover:bg-indigo-700 shadow-lg hover:shadow-xl transition-all duration-200"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-200"
                 >
                   <Eye className="h-4 w-4 mr-2" />
                   Preview Resume
                 </Button>
               </div>
             </CardHeader>
-            <CardContent className="p-8 max-h-[70vh] overflow-y-auto scroll-smooth">{renderCurrentForm()}</CardContent>
+            <CardContent className="p-8 max-h-[70vh] overflow-y-auto scroll-smooth">
+              {renderCurrentForm()}
+            </CardContent>
           </Card>
 
           {/* Navigation Buttons */}
@@ -210,7 +220,7 @@ export function ResumeBuilder() {
               variant="outline"
               onClick={handlePrevious}
               disabled={currentStep === 0}
-              className="flex items-center gap-2 bg-white hover:bg-gray-50 border-2 px-6 py-3"
+              className="flex items-center gap-2 bg-white hover:bg-gray-50 border-2 border-gray-300 px-6 py-3 text-gray-700 shadow-md"
             >
               <ChevronLeft className="h-4 w-4" />
               Previous
@@ -220,7 +230,7 @@ export function ResumeBuilder() {
               {currentStep < STEPS.length - 1 ? (
                 <Button
                   onClick={handleNext}
-                  className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 px-6 py-3"
+                  className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 shadow-lg"
                 >
                   Next Step
                   <ChevronRight className="h-4 w-4" />
@@ -228,7 +238,7 @@ export function ResumeBuilder() {
               ) : (
                 <Button
                   onClick={handleCompleteClick}
-                  className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-6 py-3"
+                  className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 shadow-lg"
                 >
                   <Sparkles className="h-4 w-4" />
                   Complete Resume

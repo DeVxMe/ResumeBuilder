@@ -47,21 +47,23 @@ export function DeleteResumeButton({ resume }: DeleteResumeButtonProps) {
         <Button
           size="sm"
           variant="outline"
-          className="h-8 w-8 p-0 text-red-600 hover:text-red-700 hover:bg-red-50 bg-transparent"
+          className="h-8 w-8 p-0 text-red-600 hover:text-red-700 hover:bg-red-50 bg-white border-red-300"
         >
           <Trash2 className="h-3 w-3" />
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="bg-white border border-gray-200 shadow-lg">
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete Resume</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle className="text-gray-900">Delete Resume</AlertDialogTitle>
+          <AlertDialogDescription className="text-gray-700">
             Are you sure you want to delete "{resume.title}"? This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={deleteResume} disabled={isLoading} className="bg-red-600 hover:bg-red-700">
+          <AlertDialogCancel className="bg-white text-gray-700 border-gray-300 hover:bg-gray-50">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction onClick={deleteResume} disabled={isLoading} className="bg-red-600 hover:bg-red-700 text-white shadow-md">
             {isLoading ? "Deleting..." : "Delete"}
           </AlertDialogAction>
         </AlertDialogFooter>

@@ -14,7 +14,6 @@ interface PersonalInfoFormProps {
 
 export function PersonalInfoForm({ data, onUpdate }: PersonalInfoFormProps) {
   const handleChange = (field: string, value: string) => {
-    console.log(`Updating ${field}:`, value) // Debug log
     onUpdate({ [field]: value })
   }
 
@@ -25,123 +24,107 @@ export function PersonalInfoForm({ data, onUpdate }: PersonalInfoFormProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full">
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="full_name">Full Name *</Label>
+          <Label htmlFor="full_name" className="text-gray-900 font-medium">Full Name *</Label>
           <Input
             id="full_name"
             value={data.full_name || ""}
             onChange={handleInputChange("full_name")}
             placeholder="John Doe"
-            className="focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
             autoComplete="off"
-            readOnly={false}
-            disabled={false}
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email">Email Address *</Label>
+          <Label htmlFor="email" className="text-gray-900 font-medium">Email Address *</Label>
           <Input
             id="email"
             type="email"
             value={data.email || ""}
             onChange={handleInputChange("email")}
             placeholder="john@example.com"
-            className="focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
             autoComplete="off"
-            readOnly={false}
-            disabled={false}
           />
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone Number</Label>
+          <Label htmlFor="phone" className="text-gray-900 font-medium">Phone Number</Label>
           <Input
             id="phone"
             value={data.phone || ""}
             onChange={handleInputChange("phone")}
             placeholder="+1 (555) 123-4567"
-            className="focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
             autoComplete="off"
-            readOnly={false}
-            disabled={false}
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="location">Location</Label>
+          <Label htmlFor="location" className="text-gray-900 font-medium">Location</Label>
           <Input
             id="location"
             value={data.location || ""}
             onChange={handleInputChange("location")}
             placeholder="New York, NY"
-            className="focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
             autoComplete="off"
-            readOnly={false}
-            disabled={false}
           />
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="website">Website</Label>
+          <Label htmlFor="website" className="text-gray-900 font-medium">Website</Label>
           <Input
             id="website"
             value={data.website || ""}
             onChange={handleInputChange("website")}
             placeholder="https://johndoe.com"
-            className="focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
             autoComplete="off"
-            readOnly={false}
-            disabled={false}
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="linkedin">LinkedIn</Label>
+          <Label htmlFor="linkedin" className="text-gray-900 font-medium">LinkedIn</Label>
           <Input
             id="linkedin"
             value={data.linkedin || ""}
             onChange={handleInputChange("linkedin")}
             placeholder="https://linkedin.com/in/johndoe"
-            className="focus:ring-2 focus:ring-indigo-500 transition-all"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
             autoComplete="off"
-            readOnly={false}
-            disabled={false}
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="github">GitHub</Label>
+        <Label htmlFor="github" className="text-gray-900 font-medium">GitHub</Label>
         <Input
           id="github"
           value={data.github || ""}
           onChange={handleInputChange("github")}
           placeholder="https://github.com/johndoe"
-          className="focus:ring-2 focus:ring-indigo-500 transition-all"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900"
           autoComplete="off"
-          readOnly={false}
-          disabled={false}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="summary">Professional Summary</Label>
+        <Label htmlFor="summary" className="text-gray-900 font-medium">Professional Summary</Label>
         <Textarea
           id="summary"
           value={data.summary || ""}
           onChange={handleInputChange("summary")}
           placeholder="Write a brief summary of your professional background and key achievements..."
           rows={4}
-          className="focus:ring-2 focus:ring-indigo-500 transition-all resize-none"
-          readOnly={false}
-          disabled={false}
+          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all bg-white text-gray-900 resize-none"
         />
         <p className="text-sm text-gray-500">
           A compelling summary helps recruiters quickly understand your value proposition.

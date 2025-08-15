@@ -67,7 +67,7 @@ export function CompletionDialog({ isOpen, onClose, data }: CompletionDialogProp
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg p-0 gap-0 overflow-hidden">
+      <DialogContent className="max-w-lg p-0 gap-0 overflow-hidden bg-white">
         <div className="bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500 text-white p-8 text-center">
           <div className="flex justify-center mb-4">
             <div className="bg-white/25 p-4 rounded-full">
@@ -79,10 +79,10 @@ export function CompletionDialog({ isOpen, onClose, data }: CompletionDialogProp
         </div>
 
         <div className="p-6 space-y-6 bg-white">
-          <div className="bg-gray-50 rounded-xl p-5">
+          <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">Completion Status</h3>
-              <Badge className="bg-emerald-100 text-emerald-700">{completionPercentage()}% Complete</Badge>
+              <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200">{completionPercentage()}% Complete</Badge>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
@@ -116,14 +116,14 @@ export function CompletionDialog({ isOpen, onClose, data }: CompletionDialogProp
           <div className="space-y-4">
             <div className="text-center">
               <h3 className="font-semibold text-gray-900 text-lg mb-1">Download Your Resume</h3>
-              <p className="text-sm text-gray-600">Choose your preferred format</p>
+              <p className="text-sm text-gray-700">Choose your preferred format</p>
             </div>
 
             <div className="space-y-3">
               <Button
                 onClick={handlePDFDownload}
                 disabled={isDownloading}
-                className="w-full h-14 bg-red-600 hover:bg-red-700 text-white"
+                className="w-full h-14 bg-red-600 hover:bg-red-700 text-white shadow-lg"
               >
                 <FileText className="h-5 w-5 mr-3" />
                 <div className="flex flex-col items-start">
@@ -139,14 +139,14 @@ export function CompletionDialog({ isOpen, onClose, data }: CompletionDialogProp
                 onClick={handleDOCXDownload}
                 disabled={isDownloading}
                 variant="outline"
-                className="w-full h-14 border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50 bg-transparent"
+                className="w-full h-14 border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50 bg-white text-gray-900 shadow-md"
               >
                 <File className="h-5 w-5 mr-3 text-blue-600" />
                 <div className="flex flex-col items-start">
                   <span className="font-semibold text-gray-900">
                     {isDownloading && downloadFormat === "docx" ? "Generating DOCX..." : "Download as DOCX"}
                   </span>
-                  <span className="text-xs text-gray-600">Editable Word document</span>
+                  <span className="text-xs text-gray-700">Editable Word document</span>
                 </div>
                 {!isDownloading && <Download className="h-4 w-4 ml-auto text-blue-600" />}
               </Button>
@@ -157,7 +157,7 @@ export function CompletionDialog({ isOpen, onClose, data }: CompletionDialogProp
             <Button
               onClick={onClose}
               variant="ghost"
-              className="w-full text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              className="w-full text-gray-700 hover:text-gray-900 hover:bg-gray-100 bg-white"
             >
               Continue Editing Resume
             </Button>

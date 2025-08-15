@@ -62,7 +62,7 @@ export function GalleryFilters() {
   const hasActiveFilters = search || template !== "all" || industry !== "all" || experience !== "all"
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm mb-8">
+    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
       <div className="grid md:grid-cols-4 gap-4 mb-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -70,19 +70,19 @@ export function GalleryFilters() {
             placeholder="Search resumes..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10"
+            className="pl-10 border border-gray-300 bg-white text-gray-900"
             onKeyPress={(e) => e.key === "Enter" && updateFilters()}
           />
         </div>
 
         <Select value={template} onValueChange={setTemplate}>
-          <SelectTrigger>
+          <SelectTrigger className="border border-gray-300 bg-white text-gray-900">
             <SelectValue placeholder="Template" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Templates</SelectItem>
+          <SelectContent className="bg-white border border-gray-200 shadow-lg">
+            <SelectItem value="all" className="text-gray-700 hover:bg-gray-50">All Templates</SelectItem>
             {TEMPLATES.map((t) => (
-              <SelectItem key={t.value} value={t.value}>
+              <SelectItem key={t.value} value={t.value} className="text-gray-700 hover:bg-gray-50">
                 {t.label}
               </SelectItem>
             ))}
@@ -90,13 +90,13 @@ export function GalleryFilters() {
         </Select>
 
         <Select value={industry} onValueChange={setIndustry}>
-          <SelectTrigger>
+          <SelectTrigger className="border border-gray-300 bg-white text-gray-900">
             <SelectValue placeholder="Industry" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Industries</SelectItem>
+          <SelectContent className="bg-white border border-gray-200 shadow-lg">
+            <SelectItem value="all" className="text-gray-700 hover:bg-gray-50">All Industries</SelectItem>
             {INDUSTRIES.map((i) => (
-              <SelectItem key={i.value} value={i.value}>
+              <SelectItem key={i.value} value={i.value} className="text-gray-700 hover:bg-gray-50">
                 {i.label}
               </SelectItem>
             ))}
@@ -104,13 +104,13 @@ export function GalleryFilters() {
         </Select>
 
         <Select value={experience} onValueChange={setExperience}>
-          <SelectTrigger>
+          <SelectTrigger className="border border-gray-300 bg-white text-gray-900">
             <SelectValue placeholder="Experience" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Levels</SelectItem>
+          <SelectContent className="bg-white border border-gray-200 shadow-lg">
+            <SelectItem value="all" className="text-gray-700 hover:bg-gray-50">All Levels</SelectItem>
             {EXPERIENCE_LEVELS.map((e) => (
-              <SelectItem key={e.value} value={e.value}>
+              <SelectItem key={e.value} value={e.value} className="text-gray-700 hover:bg-gray-50">
                 {e.label}
               </SelectItem>
             ))}
@@ -119,9 +119,11 @@ export function GalleryFilters() {
       </div>
 
       <div className="flex gap-2">
-        <Button onClick={updateFilters}>Apply Filters</Button>
+        <Button onClick={updateFilters} className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-md">
+          Apply Filters
+        </Button>
         {hasActiveFilters && (
-          <Button variant="outline" onClick={clearFilters}>
+          <Button variant="outline" onClick={clearFilters} className="bg-white text-gray-700 border-gray-300 hover:bg-gray-50">
             <X className="h-4 w-4 mr-2" />
             Clear All
           </Button>

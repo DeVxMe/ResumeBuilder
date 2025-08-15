@@ -80,15 +80,15 @@ export function PreviewOverlay({ isOpen, onClose, data, onTemplateChange, onThem
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-7xl h-[90vh] p-0 gap-0">
-        <DialogHeader className="px-6 py-4 border-b bg-gradient-to-r from-white to-gray-50">
+      <DialogContent className="max-w-7xl h-[90vh] p-0 gap-0 bg-white">
+        <DialogHeader className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-white to-gray-50">
           <div className="flex items-center justify-between">
-            <DialogTitle className="text-2xl font-heading">Resume Preview</DialogTitle>
+            <DialogTitle className="text-2xl font-heading text-gray-900">Resume Preview</DialogTitle>
             <div className="flex items-center gap-3">
-              <Badge variant="secondary" className="bg-indigo-100 text-indigo-700">
+              <Badge variant="secondary" className="bg-indigo-100 text-indigo-700 border-indigo-200">
                 Live Preview
               </Badge>
-              <Button variant="ghost" size="sm" onClick={onClose}>
+              <Button variant="ghost" size="sm" onClick={onClose} className="text-gray-700 hover:bg-gray-100">
                 <X className="h-4 w-4" />
               </Button>
             </div>
@@ -97,7 +97,7 @@ export function PreviewOverlay({ isOpen, onClose, data, onTemplateChange, onThem
 
         <div className="flex h-full overflow-hidden">
           {/* Controls Sidebar */}
-          <div className="w-80 border-r bg-gray-50/50 p-6 space-y-6 overflow-y-auto max-h-full scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+          <div className="w-80 border-r border-gray-200 bg-gray-50/80 p-6 space-y-6 overflow-y-auto max-h-full scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
             {/* Template Selection */}
             <div className="space-y-3">
               <div className="flex items-center gap-2">
@@ -105,12 +105,12 @@ export function PreviewOverlay({ isOpen, onClose, data, onTemplateChange, onThem
                 <label className="text-sm font-semibold text-gray-900">Template</label>
               </div>
               <Select value={data.template_id} onValueChange={onTemplateChange}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full border border-gray-300 bg-white text-gray-900">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white border border-gray-200 shadow-lg">
                   {TEMPLATES.map((template) => (
-                    <SelectItem key={template.id} value={template.id}>
+                    <SelectItem key={template.id} value={template.id} className="text-gray-700 hover:bg-gray-50">
                       {template.name}
                     </SelectItem>
                   ))}
@@ -142,11 +142,11 @@ export function PreviewOverlay({ isOpen, onClose, data, onTemplateChange, onThem
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-3 pt-4 border-t">
+            <div className="space-y-3 pt-4 border-t border-gray-200">
               <Button
                 onClick={handlePDFDownload}
                 disabled={isDownloading}
-                className="w-full bg-indigo-600 hover:bg-indigo-700"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg"
                 type="button"
               >
                 <Download className="h-4 w-4 mr-2" />
@@ -156,13 +156,13 @@ export function PreviewOverlay({ isOpen, onClose, data, onTemplateChange, onThem
                 onClick={handleDOCXDownload}
                 disabled={isDownloading}
                 variant="outline"
-                className="w-full bg-transparent"
+                className="w-full bg-white text-gray-700 border-gray-300 hover:bg-gray-50 shadow-md"
                 type="button"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Download DOCX
               </Button>
-              <Button variant="outline" className="w-full bg-transparent" type="button">
+              <Button variant="outline" className="w-full bg-white text-gray-700 border-gray-300 hover:bg-gray-50 shadow-md" type="button">
                 <Share2 className="h-4 w-4 mr-2" />
                 Share Resume
               </Button>
@@ -172,7 +172,7 @@ export function PreviewOverlay({ isOpen, onClose, data, onTemplateChange, onThem
           {/* Preview Area */}
           <div className="flex-1 bg-gray-100 p-8 overflow-y-auto overflow-x-hidden scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 hover:scrollbar-thumb-gray-500">
             <div className="max-w-2xl mx-auto">
-              <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
+              <div className="bg-white shadow-2xl rounded-lg overflow-hidden border border-gray-200">
                 <div className="w-full min-h-[1056px]">
                   <TemplateComponent data={data} />
                 </div>
